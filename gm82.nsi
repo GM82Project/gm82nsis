@@ -4,7 +4,8 @@
 Name "Game Maker 8.2"
 
 ; The file to write
-OutFile "gm82.exe"
+OutFile "Game Maker 8.2 Setup.exe"
+Icon "gm82.ico"
 
 ; don't ask admin
 RequestExecutionLevel user
@@ -18,6 +19,19 @@ InstallDir $APPDATA\GameMaker8.2
 ; Registry key to check for directory (so if you install again, it will 
 ; overwrite the old one automatically)
 InstallDirRegKey HKLM "Software\NSIS_GM82" "Install_Dir"
+
+LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
+;--------------------------------
+;Version Information
+
+  VIProductVersion "1.0.0.0"
+  VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "Game Maker 8.2"
+  VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" ""
+  VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" ""
+  VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" ""
+  VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" ""
+  VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "Game Maker 8.2 Setup"
+  VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "1.0.0.0"
 
 ;--------------------------------
 
