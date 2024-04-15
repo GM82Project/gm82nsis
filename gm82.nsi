@@ -79,8 +79,7 @@ Section "Visual C Runtime (32 bits)"
   SectionIn RO
   SetOutPath $INSTDIR
   File "vcredist_x86.exe"
-  ;nsExec::Exec '"$INSTDIR\vcredist_x86.exe" /quiet'
-  ExecWait "$INSTDIR\vcredist_x86.exe"
+  ExecWait "$INSTDIR\vcredist_x86.exe /passive"
   Delete "$INSTDIR\vcredist_x86.exe"
   
 SectionEnd
@@ -118,7 +117,9 @@ Section /o "Examples and Documentation"
   nsExec::Exec '"$INSTDIR\7za.exe" -y x doc.7z' 
   Delete "$DOCUMENTS\Game Maker 8.2 Documentation\doc.7z"
   ExecShell "open" "$DOCUMENTS\Game Maker 8.2 Documentation"
-
+  CreateDirectory "$SMPROGRAMS\Game Maker 8.2"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Documentation.lnk" "$DOCUMENTS\Game Maker 8.2 Documentation"
+  
 SectionEnd
 
 ; Optional section (can be disabled by the user)
@@ -127,6 +128,8 @@ Section "Start Menu Shortcuts"
   CreateDirectory "$SMPROGRAMS\Game Maker 8.2"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Uninstall.lnk" "$INSTDIR\uninstall.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Anvil.lnk" "$INSTDIR\anvil.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Room Editor.lnk" "$INSTDIR\gm82room.exe"
 
 SectionEnd
 
@@ -134,6 +137,8 @@ SectionEnd
 Section "Desktop Shortcuts"
 
   CreateShortcut "$DESKTOP\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
+  CreateShortcut "$DESKTOP\Anvil.lnk" "$INSTDIR\anvil.exe"
+  CreateShortcut "$DESKTOP\Room Editor.lnk" "$INSTDIR\gm82room.exe"
   
 SectionEnd
 
@@ -182,6 +187,8 @@ Section "Uninstall"
   ; Remove shortcuts, if any
   Delete "$SMPROGRAMS\Game Maker 8.2\*.lnk"
   Delete "$DESKTOP\Game Maker 8.2.lnk"
+  Delete "$DESKTOP\Anvil.lnk"
+  Delete "$DESKTOP\Room Editor.lnk"
 
   ; Remove directories
   RMDir "$SMPROGRAMS\Game Maker 8.2"
