@@ -5,7 +5,7 @@ A collection of files and scripts required to create the NSIS installer for Game
 ## Requirements
 
 - NSIS 3.10
-- FontName plugin for nsis
+- FontName 0.7 plugin for nsis
 - 7za.exe
 - vcredist_x86.exe
 - doc.7z - zip containing the demos and examples
