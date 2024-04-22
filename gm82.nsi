@@ -128,8 +128,9 @@ Section "Start Menu Shortcuts"
   CreateDirectory "$SMPROGRAMS\Game Maker 8.2"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Uninstall.lnk" "$INSTDIR\uninstall.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Anvil.lnk" "$INSTDIR\anvil.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Shader Anvil.lnk" "$INSTDIR\anvil.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Room Editor.lnk" "$INSTDIR\gm82room.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Video Encoder.lnk" "$INSTDIR\gm82venc.exe"
 
 SectionEnd
 
@@ -137,8 +138,6 @@ SectionEnd
 Section "Desktop Shortcuts"
 
   CreateShortcut "$DESKTOP\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
-  CreateShortcut "$DESKTOP\Anvil.lnk" "$INSTDIR\anvil.exe"
-  CreateShortcut "$DESKTOP\Room Editor.lnk" "$INSTDIR\gm82room.exe"
   
 SectionEnd
 
