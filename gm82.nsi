@@ -1,4 +1,4 @@
-!include "FontName.nsh"
+!include "FontInstall.nsh"
 
 ; The name of the installer
 Name "Game Maker 8.2"
@@ -91,9 +91,9 @@ SectionEnd
 ; Optional section (can be disabled by the user)
 Section /o "Default Script Colors and Font"
 
-  SetOutPath $INSTDIR
+  SetOutPath $FONTS
   File "JetBrainsMono-Medium.ttf"
-  !insertmacro FontName "$INSTDIR\JetBrainsMono-Medium.ttf"
+  !insertmacro FontInstallTTF "JetBrainsMono-Medium.ttf" "JetBrainsMono-Medium.ttf" "JetBrains Mono Medium"
   
   WriteRegStr   HKCU "Software\Game Maker\Version 8.2\Preferences" "FontName" "JetBrains Mono Medium"
 
