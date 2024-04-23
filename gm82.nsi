@@ -8,7 +8,7 @@ OutFile "Game Maker 8.2 Setup.exe"
 Icon "gm82.ico"
 
 ; don't ask admin
-RequestExecutionLevel user
+RequestExecutionLevel admin
 
 ; Build Unicode installer
 Unicode True
@@ -56,10 +56,13 @@ Section "Game Maker 8.2 Program Files"
   ; Put file there
   File "7za.exe"
   File "src.7z"
+  File associate.bat
   
-  ; extract files and run vcredist
+  ; extract files
   nsExec::Exec '"$INSTDIR\7za.exe" -y x src.7z' 
-  Delete "$INSTDIR\src.7z" 
+  Delete "$INSTDIR\src.7z"
+
+  nsExec::Exec '"$INSTDIR\associate.bat"'
   
   ; Write the installation path into the registry
   WriteRegStr HKLM SOFTWARE\NSIS_GM82 "Install_Dir" "$INSTDIR"
