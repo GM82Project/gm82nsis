@@ -131,6 +131,8 @@ Section "Start Menu Shortcuts"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Shader Anvil.lnk" "$INSTDIR\anvil.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Room Editor.lnk" "$INSTDIR\gm82room.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Video Encoder.lnk" "$INSTDIR\gm82venc.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Video Player.lnk" "$INSTDIR\gm82vp.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Model Viewer.lnk" "$INSTDIR\gm82mv.exe"
 
 SectionEnd
 
