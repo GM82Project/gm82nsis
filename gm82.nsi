@@ -63,6 +63,7 @@ Section "Game Maker 8.2 Program Files"
   Delete "$INSTDIR\src.7z"
 
   nsExec::Exec '"$INSTDIR\associate.bat"'
+  Delete '"$INSTDIR\associate.bat"'
   
   ; Write the installation path into the registry
   WriteRegStr HKLM SOFTWARE\NSIS_GM82 "Install_Dir" "$INSTDIR"
@@ -187,6 +188,7 @@ Section "Uninstall"
   Delete "$INSTDIR\*.dll"
   Delete "$INSTDIR\snippets.txt"
   Delete "$INSTDIR\*.log"
+  Delete "$INSTDIR\*.ini"
 
   ; Remove shortcuts, if any
   Delete "$SMPROGRAMS\Game Maker 8.2\*.lnk"
@@ -195,6 +197,8 @@ Section "Uninstall"
   Delete "$DESKTOP\Room Editor.lnk"
 
   ; Remove directories
+  RMDir "$SMPROGRAMS\Game Maker 8.2\temp\frames"
+  RMDir "$SMPROGRAMS\Game Maker 8.2\temp"
   RMDir "$SMPROGRAMS\Game Maker 8.2"
   RMDir "$INSTDIR"
 
