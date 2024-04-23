@@ -129,6 +129,7 @@ SectionEnd
 ; Optional section (can be disabled by the user)
 Section "Start Menu Shortcuts"
 
+  SetOutPath $INSTDIR
   CreateDirectory "$SMPROGRAMS\Game Maker 8.2"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Uninstall.lnk" "$INSTDIR\uninstall.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
