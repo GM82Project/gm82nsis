@@ -7,7 +7,7 @@ Name "Game Maker 8.2"
 OutFile "Game Maker 8.2 Setup.exe"
 Icon "gm82.ico"
 
-; don't ask admin
+; ask admin
 RequestExecutionLevel admin
 
 ; Build Unicode installer
@@ -30,7 +30,7 @@ LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
   VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" ""
   VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" ""
   VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" ""
-  VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "Game Maker 8.2 Setup"
+  VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "Game Maker 8.2 Setup Wizard"
   VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "1.0.0.0"
 
 ;--------------------------------
@@ -38,6 +38,7 @@ LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
 ; Pages
 
 Page components
+Page directory
 Page instfiles
 
 UninstPage uninstConfirm
@@ -69,7 +70,7 @@ Section "Game Maker 8.2 Program Files"
   WriteRegStr HKLM SOFTWARE\NSIS_GM82 "Install_Dir" "$INSTDIR"
   
   ; Write the uninstall keys for Windows
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\GameMaker8.2" "DisplayName" "NSIS GameMaker8.2"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\GameMaker8.2" "DisplayName" "Game Maker 8.2"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\GameMaker8.2" "UninstallString" '"$INSTDIR\uninstall.exe"'
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\GameMaker8.2" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\GameMaker8.2" "NoRepair" 1
@@ -162,7 +163,7 @@ Section "Uninstall"
   
   ; Remove registry keys
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\GameMaker8.2"
-  DeleteRegKey HKLM SOFTWARE\NSIS_GM82
+  DeleteRegKey HKLM "SOFTWARE\NSIS_GM82"
 
   ; Remove files and uninstaller
   Delete "$INSTDIR\extensions\*"
