@@ -56,12 +56,12 @@ Section "Game Maker 8.2 Program Files"
   
   ; Put file there
   File "7za.exe"
-  File "src.7z"
+  File "Game_Maker_8.2_portable.7z"
   File associate.bat
   
   ; extract files
-  nsExec::Exec '"$INSTDIR\7za.exe" -y x src.7z' 
-  Delete "$INSTDIR\src.7z"
+  nsExec::Exec '"$INSTDIR\7za.exe" -y x Game_Maker_8.2_portable.7z' 
+  Delete "$INSTDIR\Game_Maker_8.2_portable.7z"
 
   nsExec::Exec '"$INSTDIR\associate.bat"'
   Delete "$INSTDIR\associate.bat"
