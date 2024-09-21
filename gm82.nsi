@@ -51,6 +51,9 @@ Section "Game Maker 8.2 Program Files"
 
   SectionIn RO
   
+  ; close game maker
+  ExecWait "taskkill /f /im GameMaker.exe"
+  
   ; Set output path to the installation directory.
   SetOutPath $INSTDIR
   
