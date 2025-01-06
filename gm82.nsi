@@ -5,7 +5,7 @@ Name "Game Maker 8.2"
 
 ; The file to write
 OutFile "Game Maker 8.2 Setup.exe"
-Icon "gm82.ico"
+Icon "setup32.ico"
 
 ; ask admin
 RequestExecutionLevel admin
