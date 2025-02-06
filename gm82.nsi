@@ -1,5 +1,3 @@
-!include "FontInstall.nsh"
-
 ; The name of the installer
 Name "Game Maker 8.2"
 
@@ -8,7 +6,7 @@ OutFile "Game Maker 8.2 Setup.exe"
 Icon "setup32.ico"
 
 ; ask admin
-RequestExecutionLevel admin
+RequestExecutionLevel user
 
 ; Build Unicode installer
 Unicode True
@@ -81,25 +79,8 @@ Section "Game Maker 8.2 Program Files"
   
 SectionEnd
 
-; mandatory visual c runtime install
-Section "Visual C Runtime (32 bits)"
-
-  SectionIn RO
-  SetOutPath $INSTDIR
-  File "vcredist_x86.exe"
-  ExecWait "$INSTDIR\vcredist_x86.exe /passive"
-  Delete "$INSTDIR\vcredist_x86.exe"
-  
-SectionEnd
-
 ; Optional section (can be disabled by the user)
-Section /o "Default Script Colors and Font"
-
-  SetOutPath $FONTS
-  File "JetBrainsMono-Medium.ttf"
-  !insertmacro FontInstallTTF "JetBrainsMono-Medium.ttf" "JetBrainsMono-Medium.ttf" "JetBrains Mono Medium"
-  
-  WriteRegStr   HKCU "Software\Game Maker\Version 8.2\Preferences" "FontName" "JetBrains Mono Medium"
+Section /o "Default Script Colors"
 
   WriteRegDWORD HKCU "Software\Game Maker\Version 8.2\Preferences" "CodeColor0" 0x00808080
   WriteRegDWORD HKCU "Software\Game Maker\Version 8.2\Preferences" "CodeColor1" 0x000080ff
