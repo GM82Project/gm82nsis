@@ -58,14 +58,14 @@ Section "Game Maker 8.2 Program Files"
   ; Put file there
   File "7za.exe"
   File "Game_Maker_8.2_portable.7z"
-  File associate.bat
+  ;File associate.bat
   
   ; extract files
   nsExec::Exec '"$INSTDIR\7za.exe" -y x Game_Maker_8.2_portable.7z' 
   Delete "$INSTDIR\Game_Maker_8.2_portable.7z"
 
-  nsExec::Exec '"$INSTDIR\associate.bat"'
-  Delete "$INSTDIR\associate.bat"
+  ;nsExec::Exec '"$INSTDIR\associate.bat"'
+  ;Delete "$INSTDIR\associate.bat"
   
   ; Write the installation path into the registry
   WriteRegStr HKLM SOFTWARE\NSIS_GM82 "Install_Dir" "$INSTDIR"
@@ -179,8 +179,6 @@ Section "Uninstall"
   ; Remove shortcuts, if any
   Delete "$SMPROGRAMS\Game Maker 8.2\*.lnk"
   Delete "$DESKTOP\Game Maker 8.2.lnk"
-  Delete "$DESKTOP\Anvil.lnk"
-  Delete "$DESKTOP\Room Editor.lnk"
 
   ; Remove directories
   RMDir "$SMPROGRAMS\Game Maker 8.2"  
