@@ -80,6 +80,28 @@ Section "Game Maker 8.2 Program Files"
 SectionEnd
 
 ; Optional section (can be disabled by the user)
+Section "Start Menu Shortcuts"
+
+  SetOutPath $INSTDIR
+  CreateDirectory "$SMPROGRAMS\Game Maker 8.2"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Uninstall.lnk" "$INSTDIR\uninstall.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Shader Anvil.lnk" "$INSTDIR\anvil.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Room Editor.lnk" "$INSTDIR\gm82room.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Video Encoder.lnk" "$INSTDIR\gm82venc.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Video Player.lnk" "$INSTDIR\gm82vp.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Model Viewer.lnk" "$INSTDIR\gm82mv.exe"
+
+SectionEnd
+
+; Optional section (can be disabled by the user)
+Section "Desktop Shortcuts"
+
+  CreateShortcut "$DESKTOP\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
+  
+SectionEnd
+
+; Optional section (can be disabled by the user)
 Section /o "Default Script Colors"
 
   WriteRegDWORD HKCU "Software\Game Maker\Version 8.2\Preferences" "CodeColor0" 0x00808080
@@ -112,24 +134,15 @@ Section /o "Examples and Documentation"
 SectionEnd
 
 ; Optional section (can be disabled by the user)
-Section "Start Menu Shortcuts"
+Section /o "Extension Creator" EXTMAKER
 
   SetOutPath $INSTDIR
+  File "extmaker.7z"
+  nsExec::Exec '"$INSTDIR\7za.exe" -y x extmaker.7z' 
+  Delete "extmaker.7z"
   CreateDirectory "$SMPROGRAMS\Game Maker 8.2"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Uninstall.lnk" "$INSTDIR\uninstall.exe"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Shader Anvil.lnk" "$INSTDIR\anvil.exe"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Room Editor.lnk" "$INSTDIR\gm82room.exe"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Video Encoder.lnk" "$INSTDIR\gm82venc.exe"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Video Player.lnk" "$INSTDIR\gm82vp.exe"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Model Viewer.lnk" "$INSTDIR\gm82mv.exe"
-
-SectionEnd
-
-; Optional section (can be disabled by the user)
-Section "Desktop Shortcuts"
-
-  CreateShortcut "$DESKTOP\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Extension Maker.lnk" "$INSTDIR\extmaker\Extension_Maker.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Library Maker.lnk" "$INSTDIR\extmaker\Library_Maker.exe"
   
 SectionEnd
 
