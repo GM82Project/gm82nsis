@@ -33,8 +33,6 @@ LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
 
 ;--------------------------------
 
-; Pages
-
 Page components
 Page directory
 Page instfiles
@@ -44,7 +42,6 @@ UninstPage instfiles
 
 ;--------------------------------
 
-; The stuff to install
 Section "Game Maker 8.2 Program Files"
 
   SectionIn RO
@@ -79,13 +76,13 @@ Section "Game Maker 8.2 Program Files"
   
 SectionEnd
 
-; Optional section (can be disabled by the user)
 Section "Start Menu Shortcuts"
 
   SetOutPath $INSTDIR
   CreateDirectory "$SMPROGRAMS\Game Maker 8.2"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Uninstall.lnk" "$INSTDIR\uninstall.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\8.2 Hub.lnk" "$INSTDIR\gm82hub.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Shader Anvil.lnk" "$INSTDIR\anvil.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Room Editor.lnk" "$INSTDIR\gm82room.exe"
   CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Video Encoder.lnk" "$INSTDIR\gm82venc.exe"
@@ -94,15 +91,14 @@ Section "Start Menu Shortcuts"
 
 SectionEnd
 
-; Optional section (can be disabled by the user)
-Section "Desktop Shortcuts"
+Section /o "Desktop Shortcuts"
 
   CreateShortcut "$DESKTOP\Game Maker 8.2.lnk" "$INSTDIR\GameMaker.exe"
+  CreateShortcut "$DESKTOP\8.2 Hub.lnk" "$INSTDIR\gm82hub.exe"
   
 SectionEnd
 
-; Optional section (can be disabled by the user)
-Section /o "Default Script Colors"
+Section /o "8.2 Style Script Colors"
 
   WriteRegDWORD HKCU "Software\Game Maker\Version 8.2\Preferences" "CodeColor0" 0x00808080
   WriteRegDWORD HKCU "Software\Game Maker\Version 8.2\Preferences" "CodeColor1" 0x000080ff
@@ -119,7 +115,6 @@ Section /o "Default Script Colors"
 
 SectionEnd
 
-; Optional section (can be disabled by the user)
 Section /o "Examples and Documentation"
 
   CreateDirectory "$DOCUMENTS\Game Maker 8.2 Documentation"
@@ -133,7 +128,6 @@ Section /o "Examples and Documentation"
   
 SectionEnd
 
-; Optional section (can be disabled by the user)
 Section /o "Extension Creator" EXTMAKER
 
   SetOutPath $INSTDIR
@@ -192,6 +186,7 @@ Section "Uninstall"
   ; Remove shortcuts, if any
   Delete "$SMPROGRAMS\Game Maker 8.2\*.lnk"
   Delete "$DESKTOP\Game Maker 8.2.lnk"
+  Delete "$DESKTOP\8.2 Hub.lnk"
 
   ; Remove directories
   RMDir "$SMPROGRAMS\Game Maker 8.2"  
