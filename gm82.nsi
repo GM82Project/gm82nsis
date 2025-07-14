@@ -98,7 +98,7 @@ Section /o "Desktop Shortcuts"
   
 SectionEnd
 
-Section /o "8.2 Style Script Colors"
+Section "8.2 Style Script Colors"
 
   WriteRegDWORD HKCU "Software\Game Maker\Version 8.2\Preferences" "CodeColor0" 0x00808080
   WriteRegDWORD HKCU "Software\Game Maker\Version 8.2\Preferences" "CodeColor1" 0x000080ff
