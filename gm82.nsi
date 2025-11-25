@@ -117,14 +117,14 @@ SectionEnd
 
 Section /o "Examples and Documentation"
 
-  CreateDirectory "$DOCUMENTS\Game Maker 8.2 Documentation"
-  SetOutPath "$DOCUMENTS\Game Maker 8.2 Documentation\"
+  CreateDirectory "$INSTDIR\Game Maker 8.2 Documentation"
+  SetOutPath "$INSTDIR\Game Maker 8.2 Documentation\"
   File "doc.7z"
   nsExec::Exec '"$INSTDIR\7za.exe" -y x doc.7z' 
-  Delete "$DOCUMENTS\Game Maker 8.2 Documentation\doc.7z"
-  ExecShell "open" "$DOCUMENTS\Game Maker 8.2 Documentation"
+  Delete "$INSTDIR\Game Maker 8.2 Documentation\doc.7z"
+  ExecShell "open" "$INSTDIR\Game Maker 8.2 Documentation"
   CreateDirectory "$SMPROGRAMS\Game Maker 8.2"
-  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Documentation.lnk" "$DOCUMENTS\Game Maker 8.2 Documentation"
+  CreateShortcut "$SMPROGRAMS\Game Maker 8.2\Documentation.lnk" "$INSTDIR\Game Maker 8.2 Documentation"
   
 SectionEnd
 
