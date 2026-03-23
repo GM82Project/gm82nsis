@@ -115,7 +115,7 @@ Section "8.2 Style Script Colors"
 
 SectionEnd
 
-Section /o "Examples and Documentation"
+Section "Examples and Documentation"
 
   CreateDirectory "$INSTDIR\Game Maker 8.2 Documentation"
   SetOutPath "$INSTDIR\Game Maker 8.2 Documentation\"
